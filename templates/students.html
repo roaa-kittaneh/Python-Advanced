@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student List</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h2>Registered Students</h2>
     <ul>
         {% for student in students %}
             <li>
-                <strong>{{ student.name }}</strong> (ID: {{ student.student_id }}) 
-                - GPA: {{ student.gpa | round(2) }}
+                <a href="/student/{{ student.student_id }}">{{ student.name }}</a> 
+                (ID: {{ student.student_id }})
             </li>
         {% else %}
             <li>No students registered yet.</li>
         {% endfor %}
     </ul>
-    <br>
-    <a href="/">Go Back to Registration</a>
-</body>
-</html>
+{% endblock %}

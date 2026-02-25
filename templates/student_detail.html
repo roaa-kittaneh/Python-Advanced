@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Student Details: {{ student.name }}</h2>
+    <p><strong>ID:</strong> {{ student.student_id }}</p>
+    <p><strong>Grades:</strong> {{ student.grades }}</p>
+    <p><strong>GPA:</strong> {{ student.gpa | round(2) }}</p>
+    
+    <p><strong>Status:</strong> 
+        {% if student.is_passing(student.gpa) %}
+            <span style="color: green;">Passing</span>
+        {% else %}
+            <span style="color: red;">Failing</span>
+        {% endif %}
+    </p>
+    <br>
+    <a href="/students">Back to List</a>
+{% endblock %}

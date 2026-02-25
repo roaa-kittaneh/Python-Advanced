@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register Student</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h2>Register a New Student</h2>
-    <form action="/" method="POST">
+    <form action="/register" method="POST">
         <label>Student ID:</label><br>
         <input type="number" name="student_id" required><br><br>
 
         <label>Name:</label><br>
         <input type="text" name="name" required><br><br>
 
-        <label>Grades (comma separated, e.g., 90,85,92):</label><br>
+        <label>Grades (comma separated, 90,85,92):</label><br>
         <input type="text" name="grades"><br><br>
 
         <button type="submit">Register</button>
     </form>
-    <br>
-    <a href="/students">View Registered Students</a>
-</body>
-</html>
+{% endblock %}
