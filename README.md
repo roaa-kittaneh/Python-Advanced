@@ -11,7 +11,7 @@ A complete mini-web application demonstrating advanced Python OOP, modular proje
 - **Testing:** Automated unit tests for OOP logic and Flask routes using `pytest`.
 
 
-<img width="458" height="358" alt="Screenshot 2026-02-26 013601" src="https://github.com/user-attachments/assets/c72269ef-e28c-4983-8f0e-de66b2afb2ec" />
+<img width="1194" height="381" alt="image" src="https://github.com/user-attachments/assets/bd43de02-64ac-4620-be21-bf4ff277c21a" />
 <img width="1200" height="428" alt="Screenshot 2026-02-26 013952" src="https://github.com/user-attachments/assets/232b85c3-0950-406a-8785-98c3408ee45c" />
 <img width="1202" height="306" alt="Screenshot 2026-02-26 022907" src="https://github.com/user-attachments/assets/cc601377-0c6b-40ee-9a67-84d860901bca" />
 <img width="1199" height="395" alt="Screenshot 2026-02-26 014022" src="https://github.com/user-attachments/assets/54dcaae4-fc47-477b-af5e-8931d12f14ec" />
