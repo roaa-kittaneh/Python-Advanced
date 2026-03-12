@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Student Portal</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        nav { background-color: #f4f4f4; padding: 10px; margin-bottom: 20px; }
-        nav a { margin-right: 15px; text-decoration: none; color: #333; font-weight: bold; }
-    </style>
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/register">Register Student</a>
-        <a href="/students">Students List</a>
+        <a href="{{ url_for('students.home') }}">Dashboard</a> | 
+        {% if current_user.is_authenticated %}
+            <span>Welcome, {{ current_user.username }}!</span> | 
+            <a href="{{ url_for('students.list_students') }}">Students</a> |
+            <a href="{{ url_for('students.add_student') }}">Add Student</a> |
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">Login</a> | 
+            <a href="{{ url_for('auth.register') }}">Sign Up</a>
+        {% endif %}
     </nav>
+    <hr>
 
-    {% block content %}
-    {% endblock %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul style="list-style-type: none; padding: 0;">
+        {% for category, message in messages %}
+          <li style="color: {% if category == 'success' %}green{% else %}red{% endif %}; font-weight: bold;">
+              {{ message }}
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

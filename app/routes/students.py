@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.extensions import db
 from app.models.student import Student
+from flask_login import login_required
 
 students_bp = Blueprint('students', __name__)
 
@@ -8,8 +9,8 @@ students_bp = Blueprint('students', __name__)
 def home():
     return render_template('index.html')
 
-@students_bp.route('/register', methods=['GET', 'POST'])
-def register():
+@students_bp.route('/add-student', methods=['GET', 'POST'])
+def add_student():
     if request.method == 'POST':
         student_id = int(request.form.get('student_id'))
         name = request.form.get('name')
@@ -22,9 +23,10 @@ def register():
         
         return redirect(url_for('students.list_students'))
     
-    return render_template('register.html')
+    return render_template('add_student.html')
 
 @students_bp.route('/students')
+@login_required
 def list_students():
     all_students = Student.query.all()
     return render_template('students.html', students=all_students)
@@ -38,6 +40,7 @@ def student_detail(student_id):
 
 
 @students_bp.route('/student/<int:student_id>/edit', methods=['GET', 'POST'])
+@login_required
 def edit_student(student_id):
     student = Student.query.filter_by(student_id=student_id).first_or_404()
     
@@ -53,6 +56,7 @@ def edit_student(student_id):
 
 
 @students_bp.route('/student/<int:student_id>/delete', methods=['POST'])
+@login_required
 def delete_student(student_id):
     student = Student.query.filter_by(student_id=student_id).first_or_404()
     

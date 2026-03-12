@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Register a New Student</h2>
-    <form action="/register" method="POST">
+    <h2>Add a New Student</h2>
+    <form action="/add-student" method="POST">
         <label>Student ID:</label><br>
         <input type="number" name="student_id" required><br><br>
 
@@ -11,6 +11,6 @@
         <label>Grades (comma separated):</label><br>
         <input type="text" name="grades"><br><br>
 
-        <button type="submit">Register</button>
+        <button type="submit">Add Student</button>
     </form>
 {% endblock %}
