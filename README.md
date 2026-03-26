@@ -27,6 +27,10 @@ A comprehensive web application built with Python and Flask. This project serves
 <img width="949" height="405" alt="Screenshot 2026-03-26 205507" src="https://github.com/user-attachments/assets/2099ff9c-de24-4f8a-bbfd-c27b936fc19f" />
 <img width="564" height="117" alt="Screenshot 2026-03-26 201631" src="https://github.com/user-attachments/assets/eb5dbce6-7a91-4b1b-ad26-7572385b2f83" />
 <img width="1360" height="271" alt="Screenshot 2026-03-26 184801" src="https://github.com/user-attachments/assets/c8118e1c-729c-4a23-a4bd-b1f15be913d0" />
+<img width="709" height="232" alt="Screenshot 2026-03-26 210416" src="https://github.com/user-attachments/assets/d063054b-ac69-4063-8a80-74f221db8fcd" />
+<img width="465" height="214" alt="Screenshot 2026-03-26 210454" src="https://github.com/user-attachments/assets/ee177789-4bc7-4b87-bf50-cc2e3f440190" />
+<img width="712" height="152" alt="Screenshot 2026-03-26 210556" src="https://github.com/user-attachments/assets/8481cc0b-3c60-4569-82ba-c47d5236fac4" />
+
 
 
 
