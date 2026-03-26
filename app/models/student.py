@@ -7,6 +7,7 @@ class Student(db.Model):
     student_id = db.Column(db.Integer, unique=True, nullable=False)
     name = db.Column(db.String(100), nullable=False)
     grades = db.Column(db.String(200), default="")
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     @property
     def gpa(self):
@@ -19,3 +20,4 @@ class Student(db.Model):
     @property
     def is_passing(self):
         return self.gpa >= 60  
+    

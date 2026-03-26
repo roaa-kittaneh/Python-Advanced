@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.extensions import db
 from app.models.student import Student
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 students_bp = Blueprint('students', __name__)
 
@@ -10,13 +10,14 @@ def home():
     return render_template('index.html')
 
 @students_bp.route('/add-student', methods=['GET', 'POST'])
+@login_required
 def add_student():
     if request.method == 'POST':
         student_id = int(request.form.get('student_id'))
         name = request.form.get('name')
         grades = request.form.get('grades')
         
-        new_student = Student(student_id=student_id, name=name, grades=grades)
+        new_student = Student(student_id=student_id, name=name, grades=grades, user_id=current_user.id)
         
         db.session.add(new_student)
         db.session.commit()

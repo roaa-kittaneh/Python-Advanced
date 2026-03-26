@@ -3,7 +3,11 @@ from config import Config
 from app.extensions import db, migrate, login_manager
 from app.models.user import User
 from app.routes.auth import auth_bp
-
+from app.routes.api import api_bp
+from app.models.student import Student
+from app.models.course import Course
+from app.routes.students import students_bp
+from app.routes.courses import course_bp
 
 
 def create_app(config_class=Config):
@@ -16,12 +20,11 @@ def create_app(config_class=Config):
     login_manager.login_view = 'auth.login' 
     migrate.init_app(app, db)
 
-    from app.models.student import Student
-    from app.models.course import Course
-
-    from app.routes.students import students_bp
+    
     app.register_blueprint(students_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(api_bp)
+    app.register_blueprint(course_bp)
 
     return app
 
